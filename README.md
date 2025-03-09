@@ -60,3 +60,11 @@ The second is a 'trackers' rule and will affect all torrents with the defined tr
 
 `folders`: Folders should be the base directory for where your torrents are stored. Anything that is inside this folder that is not also part of a torrent actively in qBittorrent will be deleted!
 **Warning**: This may not play well with extractors such as unpackerr that extract zip files in place. If anyone wants me to handle this better, request it as a feature extension.
+
+## How is a torrent's value defined?
+```
+(ratio * 100) / pow(seed_time, 0.75) - pow(last_transfer, 1.5)
+```
+This works for me; you can update line 44 if you prefer something different. Let me know if you have any good suggestions!
+
+This primarily uses ratio is the value of a torrent, and negatively effects it based on the length of time it has been seeding. It also reduces the score if there has not been any activity on the torrent for a while.
