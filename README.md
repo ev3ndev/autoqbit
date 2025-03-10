@@ -28,8 +28,8 @@ categories:
     max_inactive: 30
 trackers:
   - tracker: 
-      - torrentleech.org
-      - tleechreload.org
+      - tracker.torrentleech.org
+      - tracker.tleechreload.org
     can_stop_at_1: True
     min_seed_time: 10
     min_inactive: 3
