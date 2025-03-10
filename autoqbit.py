@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from datetime import datetime
-# from qbittorrent import Client
 from urllib.parse import urlparse
 import os
 import qbittorrentapi
@@ -97,9 +96,10 @@ def tidy_up_dir(directory, all_torrents):
     torrent_dir_items = [os.path.join(directory,category,item) 
                             for category_list, category in [(os.listdir(os.path.join(directory,category)), category) 
                                 for category in os.listdir(directory) 
+                                if category != "temp"
                             ] 
                             for item in category_list 
-                            if ".stfolder" not in item and ".stignore" not in item
+                            if ".stfolder" not in item and ".stignore" not in item and ".!qB" not in item
                         ]
 
     for torrent in all_torrents:

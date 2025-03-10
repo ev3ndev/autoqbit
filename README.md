@@ -11,6 +11,7 @@ Torrents are only considered for removal if they have met the minimum requiremen
 3. Create a new file called `autoqbit_rules.yaml` and fill it out (template below).
 4. Update any variables at the top of `autoqbit.py` as your own preference. (e.g. How much space to keep available, point it correctly to the rules file, etc.)
 5. Set up autobrr to call the script every time it adds a new torrent to qBittorrent (under autobrr -> filter config -> actions).
+    OR Set up qBittorrent to call the script on every torrent added to it in the qBittorrent settings.
 
 ## Config file and explanation
 
@@ -65,6 +66,6 @@ The second is a 'trackers' rule and will affect all torrents with the defined tr
 ```
 (ratio * 100) / pow(seed_time, 0.75) - pow(last_transfer, 1.5)
 ```
-This works for me; you can update line 44 if you prefer something different. Let me know if you have any good suggestions!
+This works for me; you can update line 43 if you prefer something different. Let me know if you have any good suggestions!
 
 This primarily uses ratio is the value of a torrent, and negatively effects it based on the length of time it has been seeding. It also reduces the score if there has not been any activity on the torrent for a while.
